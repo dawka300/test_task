@@ -32,6 +32,7 @@ RUN set -eux; \
 		libzip-dev \
 		postgresql-dev \
 		zlib-dev \
+        openssl \
 	; \
 	\
 	docker-php-ext-configure zip; \
@@ -42,6 +43,7 @@ RUN set -eux; \
 	; \
 	pecl install \
 		apcu-${APCU_VERSION} \
+        pcov \
 	; \
 	pecl clear-cache; \
 	docker-php-ext-enable \
