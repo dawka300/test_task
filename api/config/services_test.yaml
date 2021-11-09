@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Features\Bootstrap\:
+        resource: '../features/Bootstrap/*'
+        exclude: '../features/Bootstrap/bootstrap.php'
+    

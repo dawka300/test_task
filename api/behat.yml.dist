@@ -1,0 +1,25 @@
+default:
+    autoload: '%paths.base%/features/Bootstrap'
+    suites:
+        default:
+            filters:
+                   tags: ~@wip
+            paths:
+               -  '%paths.base%/features'
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Features\Bootstrap\AuthorizeContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: features/Bootstrap/bootstrap.php
+            kernel:
+                class: App\Kernel
+                path: ~
+                environment: test
+                debug: false
+        Behat\MinkExtension:
+            sessions:
+              symfony:
+                symfony: ~
+

@@ -1,0 +1,42 @@
+App\Application\DTO\User:                
+    itemOperations:
+        put:
+            method: PUT
+            path: '/users/{id}'
+            normalization_context:
+                groups:
+                    - !php/const App\Application\DTO\User::READ
+            denormalization_context:
+                groups:
+                    - !php/const App\Application\DTO\User::UPDATE
+        get: ~
+    collectionOperations:
+        get:
+            method: GET
+            path: '/users'
+            pagination_enabled: false
+            normalization_context:
+                groups:
+                    - !php/const App\Application\DTO\User::READ
+
+App\Application\DTO\RegisterUserInput:
+    itemOperations: []
+    collectionOperations:
+        post: 
+            method: POST
+            path: '/register'
+            input: App\Application\DTO\RegisterUserInput
+            output: App\Application\DTO\RegisterUserOutput
+            controller: App\Application\Controllers\RegistrationController
+
+App\Application\DTO\Product:
+    attributes:
+        normalization_context:
+            groups:
+                - !php/const App\Application\DTO\Product::READ
+        denormalization_context:
+            groups:
+                - !php/const App\Application\DTO\Product::UPDATE
+    
+          
+
